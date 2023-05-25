@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextInputLayout" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
+
+</resources>
