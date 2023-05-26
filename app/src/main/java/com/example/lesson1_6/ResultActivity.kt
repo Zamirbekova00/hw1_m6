@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.lesson1_6.MainActivity.Companion.KEY_FOR_TEXT
+import com.example.lesson1_6.MainActivity.Companion.MASA_TEXT
 import com.example.lesson1_6.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {
@@ -14,7 +14,7 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.etEnterText.setText(intent.getStringExtra(KEY_FOR_TEXT))
+        binding.etEnterText.setText(intent.getStringExtra(MASA_TEXT))
         initListener()
     }
 
@@ -23,13 +23,13 @@ class ResultActivity : AppCompatActivity() {
             btnPrevious.setOnClickListener {
                 if (etEnterText.text?.isNotEmpty() == true) {
                     val intent = Intent(this@ResultActivity, MainActivity::class.java)
-                    intent.putExtra(KEY_FOR_TEXT, etEnterText.text.toString())
+                    intent.putExtra(MASA_TEXT, etEnterText.text.toString())
                     setResult(Activity.RESULT_OK, Intent())
                     finish()
                 } else {
                     Toast.makeText(
                         this@ResultActivity,
-                        "Поле не может быть пустым",
+                        getString(R.string.empty_editText),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

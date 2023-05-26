@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = it.data
-                val text = data?.getStringExtra(KEY_TEXT)
+                val text = data?.getStringExtra(MASA_TEXT)
                 binding.etEnterText.setText(text)
             }
         }
@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
             btnNext.setOnClickListener {
                 if (etEnterText.text?.isNotEmpty() == true) {
                     val intent = Intent(this@MainActivity, ResultActivity::class.java)
-                    intent.putExtra(KEY_FOR_TEXT, etEnterText.text.toString())
+                    intent.putExtra(MASA_TEXT, etEnterText.text.toString())
                     secondLauncher.launch(intent)
                 } else {
                     Toast.makeText(
                         this@MainActivity,
-                        "Поле не может быть пустым",
+                        getString(R.string.empty_editText),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val KEY_FOR_TEXT = "text"
-        const val KEY_TEXT = "text"
+        const val MASA_TEXT = "text"
     }
 }

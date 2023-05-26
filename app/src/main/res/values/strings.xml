@@ -3,5 +3,6 @@
     <string name="enter_text">Введите текст</string>
     <string name="previous">Назад</string>
     <string name="next">Далее</string>
+    <string name="empty_editText">Поле не может быть пустым</string>
 
 </resources>
